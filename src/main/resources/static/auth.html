@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Arena - Login & Registration</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="text-gradient">Entering the Arena...</p>
+    </div>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="auth-wrapper">
+        <div class="glass-panel auth-container">
+            
+            <div class="auth-header">
+                <div class="logo">
+                    <span class="logo-icon">Q</span>
+                    <span class="text-gradient">Quiz Arena</span>
+                </div>
+                <p>Sharpen your mind. Dominate the ranks.</p>
+            </div>
+
+            <!-- Tab Selectors -->
+            <div class="auth-tabs">
+                <button type="button" id="tab-login" class="auth-tab active" onclick="switchTab('login')">Login</button>
+                <button type="button" id="tab-register" class="auth-tab" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="form-login" class="auth-form active" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" class="form-input" placeholder="Enter your username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+                </div>
+                <div class="auth-btn-container">
+                    <button type="submit" class="btn btn-primary">Login to Arena</button>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="form-register" class="auth-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" class="form-input" placeholder="Create a username" required minlength="3" maxlength="20" autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" class="form-input" placeholder="Enter your email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" class="form-input" placeholder="Create a password" required minlength="6" autocomplete="new-password">
+                </div>
+                <div class="auth-btn-container">
+                    <button type="submit" class="btn btn-accent">Register Account</button>
+                </div>
+            </form>
+
+            <div class="auth-footer">
+                <p id="auth-footer-text">Don't have an account? <a href="javascript:void(0)" onclick="switchTab('register')">Sign Up Free</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>

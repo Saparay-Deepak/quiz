@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Arena - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Custom Dashboard Styling */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        /* Stats Panel */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            margin: 0.5rem 0;
+            color: var(--secondary);
+        }
+        
+        /* Category Cards styling */
+        .category-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+        .card-java::before { background: hsl(210, 89%, 60%); }
+        .card-python::before { background: hsl(45, 95%, 55%); }
+        .card-sql::before { background: hsl(170, 85%, 45%); }
+        .card-htmlcss::before { background: hsl(330, 85%, 55%); }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .category-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 1rem 0 1.5rem 0;
+            border-top: 1px solid var(--bg-card-border);
+            padding-top: 0.8rem;
+        }
+
+        /* History & Leaderboard lists */
+        .list-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--bg-card-border);
+            padding-bottom: 0.6rem;
+        }
+
+        .data-table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--bg-card-border);
+        }
+
+        td {
+            padding: 1rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            color: var(--text-main);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Status Pills */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+        .pill-pass {
+            background-color: var(--color-success-bg);
+            color: var(--color-success);
+            border: 1px solid hsla(145, 80%, 45%, 0.3);
+        }
+        .pill-fail {
+            background-color: var(--color-danger-bg);
+            color: var(--color-danger);
+            border: 1px solid hsla(355, 80%, 55%, 0.3);
+        }
+
+        /* Leaderboard Podium Highlight */
+        .rank-1 { color: hsl(45, 95%, 55%); font-weight: bold; }
+        .rank-2 { color: hsl(0, 0%, 75%); font-weight: bold; }
+        .rank-3 { color: hsl(30, 60%, 50%); font-weight: bold; }
+
+        .empty-history {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Dynamic profile layout */
+        .welcome-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .profile-avatar-large {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--bg-dark);
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .profile-text h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .profile-text p {
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="text-gradient">Loading Arena Dashboard...</p>
+    </div>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">Q</span>
+            <span class="text-gradient">Quiz Arena</span>
+        </div>
+        <div class="nav-profile">
+            <div class="username-badge">
+                <div class="username-avatar" id="avatar-char">U</div>
+                <span id="header-username">Username</span>
+            </div>
+            <button class="btn btn-secondary" onclick="handleLogout()" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">Logout</button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="grid-container">
+        
+        <!-- Welcome banner -->
+        <div class="welcome-section">
+            <div class="profile-avatar-large" id="profile-avatar">U</div>
+            <div class="profile-text">
+                <h2>Welcome back, <span class="text-gradient-primary" id="welcome-username">Warrior</span>!</h2>
+                <p>Track your score, compete on the leaderboard, and pick an arena to test your skills.</p>
+            </div>
+        </div>
+
+        <!-- Aggregate Stats Cards -->
+        <div class="stats-grid">
+            <div class="glass-panel stat-card">
+                <p>Quizzes Completed</p>
+                <div class="stat-val" id="stat-attempts">0</div>
+                <p style="font-size: 0.8rem;">Keep challenging yourself</p>
+            </div>
+            <div class="glass-panel stat-card">
+                <p>Highest Score</p>
+                <div class="stat-val" id="stat-high-score">0%</div>
+                <p style="font-size: 0.8rem;">Your personal peak</p>
+            </div>
+            <div class="glass-panel stat-card">
+                <p>Pass Ratio</p>
+                <div class="stat-val" id="stat-average-score">0%</div>
+                <p style="font-size: 0.8rem;">Targeting &gt;= 50% passing</p>
+            </div>
+        </div>
+
+        <!-- Section: Quiz Arenas -->
+        <div>
+            <div class="list-header">
+                <h3>Select Your Quiz Arena</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Each quiz has 50 questions, 50 minutes timer</p>
+            </div>
+
+            <div class="grid-3" style="gap: 1.5rem;">
+                
+                <!-- Java Card -->
+                <div class="glass-panel category-card card-java">
+                    <div>
+                        <div class="category-icon">☕</div>
+                        <h4>Java Core Arena</h4>
+                        <p style="font-size: 0.9rem;">OOP concepts, collection libraries, multi-threading, exceptions, Streams, and JVM architecture.</p>
+                    </div>
+                    <div>
+                        <div class="category-meta">
+                            <span>📝 50 MCQs</span>
+                            <span>⏱ 50 Mins</span>
+                        </div>
+                        <a href="/quiz.html?category=Java" class="btn btn-primary" style="width: 100%;">Enter Arena</a>
+                    </div>
+                </div>
+
+                <!-- Python Card -->
+                <div class="glass-panel category-card card-python">
+                    <div>
+                        <div class="category-icon">🐍</div>
+                        <h4>Python Master Arena</h4>
+                        <p style="font-size: 0.9rem;">Data structures, comprehensions, decorators, generators, OOP syntax, PEP 8, and exceptions.</p>
+                    </div>
+                    <div>
+                        <div class="category-meta">
+                            <span>📝 50 MCQs</span>
+                            <span>⏱ 50 Mins</span>
+                        </div>
+                        <a href="/quiz.html?category=Python" class="btn btn-primary" style="width: 100%; background: linear-gradient(135deg, hsl(45, 95%, 50%) 0%, hsl(35, 95%, 45%) 100%); color: var(--bg-dark);">Enter Arena</a>
+                    </div>
+                </div>
+
+                <!-- SQL Card -->
+                <div class="glass-panel category-card card-sql">
+                    <div>
+                        <div class="category-icon">💾</div>
+                        <h4>SQL & DB Arena</h4>
+                        <p style="font-size: 0.9rem;">DDL/DML operations, JOIN syntax, aggregate groupings, subqueries, ACID indices, and normalizations.</p>
+                    </div>
+                    <div>
+                        <div class="category-meta">
+                            <span>📝 50 MCQs</span>
+                            <span>⏱ 50 Mins</span>
+                        </div>
+                        <a href="/quiz.html?category=SQL" class="btn btn-accent" style="width: 100%;">Enter Arena</a>
+                    </div>
+                </div>
+
+                <!-- HTML & CSS Card -->
+                <div class="glass-panel category-card card-htmlcss">
+                    <div>
+                        <div class="category-icon">🎨</div>
+                        <h4>Web Styling Arena</h4>
+                        <p style="font-size: 0.9rem;">Semantic tags, CSS Box Model, flexbox alignment, grid architectures, media queries, and styling selectors.</p>
+                    </div>
+                    <div>
+                        <div class="category-meta">
+                            <span>📝 50 MCQs</span>
+                            <span>⏱ 50 Mins</span>
+                        </div>
+                        <a href="/quiz.html?category=HTML%20%26%20CSS" class="btn btn-primary" style="width: 100%; background: linear-gradient(135deg, hsl(330, 85%, 55%) 0%, hsl(310, 85%, 45%) 100%);">Enter Arena</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- History and Leaderboard columns -->
+        <div class="grid-2" style="margin-top: 2rem;">
+            
+            <!-- History section -->
+            <div class="glass-panel">
+                <div class="list-header">
+                    <h3>Your Attempt History</h3>
+                </div>
+                <div class="data-table-wrapper" id="history-container">
+                    <!-- History Table injected here -->
+                    <div class="empty-history">Loading history logs...</div>
+                </div>
+            </div>
+
+            <!-- Leaderboard section -->
+            <div class="glass-panel">
+                <div class="list-header">
+                    <h3>Arena Leaderboard</h3>
+                </div>
+                <div class="data-table-wrapper" id="leaderboard-container">
+                    <!-- Leaderboard Table injected here -->
+                    <div class="empty-history">Loading leaderboards...</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,2002 @@
+[
+  {
+    "category": "Java",
+    "questionText": "Which of the following is not a feature of Java?",
+    "optionA": "Object-Oriented",
+    "optionB": "Use of explicit pointers",
+    "optionC": "Platform Independent",
+    "optionD": "Robust and secure",
+    "correctOption": "B",
+    "explanation": "Java design omits explicit pointers to prevent security risks and memory corruption, instead managing references internally."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which memory area in JVM is responsible for storing class structures, metadata, and the constant pool?",
+    "optionA": "JVM Stack",
+    "optionB": "Heap Area",
+    "optionC": "Method Area",
+    "optionD": "PC Register",
+    "correctOption": "C",
+    "explanation": "The Method Area stores class structures, metadata, runtime constant pools, field/method data, and constructor code."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which of these is checked at compile-time by the Java Compiler?",
+    "optionA": "NullPointerException",
+    "optionB": "IOException",
+    "optionC": "ArrayIndexOutOfBoundsException",
+    "optionD": "ArithmeticException",
+    "correctOption": "B",
+    "explanation": "IOException is a Checked Exception, meaning the compiler forces developers to handle or declare it. The others are unchecked (RuntimeException)."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the default value of a local variable in Java?",
+    "optionA": "null",
+    "optionB": "0",
+    "optionC": "Depends on the data type",
+    "optionD": "No default value (must be initialized)",
+    "correctOption": "D",
+    "explanation": "Local variables in Java do not get default values. They must be explicitly initialized before use, otherwise a compiler error occurs."
+  },
+  {
+    "category": "Java",
+    "questionText": "What does the 'final' keyword signify when applied to a class?",
+    "optionA": "The class cannot be instantiated.",
+    "optionB": "The class cannot be subclassed (inherited).",
+    "optionC": "All methods of the class are static.",
+    "optionD": "The class variables cannot change values.",
+    "correctOption": "B",
+    "explanation": "Declaring a class as 'final' prevents any other class from inheriting from it. A famous example is java.lang.String."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which class is the immediate superclass of all other classes in Java?",
+    "optionA": "Class",
+    "optionB": "Object",
+    "optionC": "System",
+    "optionD": "String",
+    "correctOption": "B",
+    "explanation": "java.lang.Object is the root of the Java class hierarchy. Every class implicitly extends java.lang.Object."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which collection represents a key-value mapping and allows null keys?",
+    "optionA": "Hashtable",
+    "optionB": "HashMap",
+    "optionC": "TreeMap",
+    "optionD": "ConcurrentHashMap",
+    "correctOption": "B",
+    "explanation": "HashMap allows one null key and multiple null values, whereas Hashtable and ConcurrentHashMap do not allow null keys or values."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which collection guarantees insertion order of elements?",
+    "optionA": "HashSet",
+    "optionB": "LinkedHashSet",
+    "optionC": "TreeSet",
+    "optionD": "HashMap",
+    "correctOption": "B",
+    "explanation": "LinkedHashSet uses a doubly-linked list running through its entries to maintain predictable insertion-order."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the size of a 'char' data type in Java?",
+    "optionA": "8 bits",
+    "optionB": "16 bits",
+    "optionC": "32 bits",
+    "optionD": "Varies by operating system",
+    "correctOption": "B",
+    "explanation": "Java uses the Unicode character set, meaning a char is represented as a 16-bit (2-byte) unsigned integer."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which of the following is used to achieve complete abstraction in Java?",
+    "optionA": "Abstract Class",
+    "optionB": "Concrete Class",
+    "optionC": "Interface",
+    "optionD": "Encapsulation",
+    "correctOption": "C",
+    "explanation": "Interfaces specify what a class should do but not how (prior to Java 8 default/static methods), thereby representing complete abstraction."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which Java 8 feature allows developers to write concise code representing single-method interfaces?",
+    "optionA": "Streams API",
+    "optionB": "Optional class",
+    "optionC": "Lambda Expressions",
+    "optionD": "Method References",
+    "correctOption": "C",
+    "explanation": "Lambda expressions provide a clear and concise way to implement functional interfaces using block expressions."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which stream operation is a terminal operation?",
+    "optionA": "map",
+    "optionB": "filter",
+    "optionC": "collect",
+    "optionD": "sorted",
+    "correctOption": "C",
+    "explanation": "Operations like map, filter, and sorted are intermediate and return another Stream. Operation collect is terminal because it evaluates the pipeline and yields a result."
+  },
+  {
+    "category": "Java",
+    "questionText": "How can you create a thread in Java?",
+    "optionA": "By extending the Thread class",
+    "optionB": "By implementing the Runnable interface",
+    "optionC": "Both A and B",
+    "optionD": "Neither A nor B",
+    "correctOption": "C",
+    "explanation": "Threads can be spawned by subclassing Thread (overriding run()) or passing a Runnable implementation to a Thread constructor."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which keyword is used to restrict access to a block or method so that only one thread can execute it at a time?",
+    "optionA": "volatile",
+    "optionB": "synchronized",
+    "optionC": "transient",
+    "optionD": "final",
+    "correctOption": "B",
+    "explanation": "The 'synchronized' keyword establishes a monitor lock on the object/class, preventing simultaneous execution by multiple threads."
+  },
+  {
+    "category": "Java",
+    "questionText": "What does the 'volatile' keyword guarantee in multithreading?",
+    "optionA": "Thread mutual exclusion (locking)",
+    "optionB": "Variable visibility across threads",
+    "optionC": "Automated rollback of actions",
+    "optionD": "Deadlock prevention",
+    "correctOption": "B",
+    "explanation": "Volatile guarantees that changes to a variable are written immediately to main memory and read directly from it, ensuring visibility."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the default initial capacity of a HashMap in Java?",
+    "optionA": "8",
+    "optionB": "10",
+    "optionC": "16",
+    "optionD": "32",
+    "correctOption": "C",
+    "explanation": "The default initial capacity of HashMap is 16. It doubles whenever the size exceeds the load factor threshold."
+  },
+  {
+    "category": "Java",
+    "questionText": "What happens when two distinct keys produce the exact same hashcode during HashMap insertion?",
+    "optionA": "An exception is thrown",
+    "optionB": "The second key overwrites the first key completely",
+    "optionC": "A collision occurs and they are stored in a linked bucket",
+    "optionD": "The hashmap doubles its size automatically",
+    "correctOption": "C",
+    "explanation": "This is a hash collision. HashMap resolves it by storing the duplicate hash items in a linked node bucket (which converts to a red-black tree if it grows large)."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which class is designed to handle string modifications efficiently in a single-threaded environment?",
+    "optionA": "String",
+    "optionB": "StringBuffer",
+    "optionC": "StringBuilder",
+    "optionD": "StringReader",
+    "correctOption": "C",
+    "explanation": "StringBuilder is mutable and faster because it is not synchronized. StringBuffer is synchronized and suitable for thread-safe scenarios."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which access modifier gives the widest visibility?",
+    "optionA": "public",
+    "optionB": "protected",
+    "optionC": "default (package-private)",
+    "optionD": "private",
+    "correctOption": "A",
+    "explanation": "The public modifier makes fields/methods accessible from any other class in the application."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which exception is thrown when an application attempts to use null in a case where an object is required?",
+    "optionA": "IllegalArgumentException",
+    "optionB": "NullPointerException",
+    "optionC": "ClassCastException",
+    "optionD": "NumberFormatException",
+    "correctOption": "B",
+    "explanation": "NullPointerException is thrown when invoking methods, accessing fields, or taking lengths of an uninstantiated object reference."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which java.util package class was introduced in Java 8 to prevent NullPointerExceptions explicitly?",
+    "optionA": "Nullable",
+    "optionB": "Optional",
+    "optionC": "ValueHolder",
+    "optionD": "Maybe",
+    "correctOption": "B",
+    "explanation": "Optional is a container object which may or may not contain a non-null value, providing elegant methods to handle absent values."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the purpose of the 'super' keyword in constructor chaining?",
+    "optionA": "To call a static method of the parent class",
+    "optionB": "To invoke the constructor of the immediate parent class",
+    "optionC": "To reference the outer class scope",
+    "optionD": "To terminate constructor execution",
+    "correctOption": "B",
+    "explanation": "super() is used inside a constructor to explicitly call a constructor of the superclass. It must be the very first statement."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which interface represents a list of elements that can be traversed sequentially and supports index-based access?",
+    "optionA": "Set",
+    "optionB": "Queue",
+    "optionC": "List",
+    "optionD": "Map",
+    "correctOption": "C",
+    "explanation": "The java.util.List interface defines an ordered collection of objects accessible by an integer index."
+  },
+  {
+    "category": "Java",
+    "questionText": "What does the 'transient' keyword indicate in Java?",
+    "optionA": "The variable's value changes continuously",
+    "optionB": "The variable should not be serialized",
+    "optionC": "The variable is shared among all class instances",
+    "optionD": "The variable is accessible only within the package",
+    "correctOption": "B",
+    "explanation": "Marking a member variable as transient prevents its value from being serialized when using ObjectOutputStream."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which garbage collection algorithm was made default in Java 9?",
+    "optionA": "Parallel GC",
+    "optionB": "CMS (Concurrent Mark Sweep)",
+    "optionC": "G1 (Garbage-First) GC",
+    "optionD": "ZGC (Z Garbage Collector)",
+    "correctOption": "C",
+    "explanation": "G1 GC was introduced to replace CMS and became the default garbage collector starting in Java 9."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the primary difference between Method Overloading and Method Overriding?",
+    "optionA": "Overloading is run-time polymorphism; overriding is compile-time polymorphism.",
+    "optionB": "Overloading is compile-time polymorphism; overriding is run-time polymorphism.",
+    "optionC": "Overloading requires inheritance; overriding does not.",
+    "optionD": "There is no functional difference.",
+    "correctOption": "B",
+    "explanation": "Overloading resolves method signatures at compile-time based on arguments. Overriding dynamically dispatches subclass implementations at runtime."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the purpose of JVM (Java Virtual Machine)?",
+    "optionA": "To write code on multiple systems",
+    "optionB": "To compile source (.java) files into bytecode (.class)",
+    "optionC": "To execute intermediate bytecode on host operating systems",
+    "optionD": "To design graphical user interfaces",
+    "correctOption": "C",
+    "explanation": "JVM is an abstract computing machine that enables Java programs to execute by translating Java bytecode into native machine instructions."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which exception is thrown when parsing a malformed number string into an integer?",
+    "optionA": "ArithmeticException",
+    "optionB": "NumberFormatException",
+    "optionC": "IllegalStateException",
+    "optionD": "InputMismatchException",
+    "correctOption": "B",
+    "explanation": "NumberFormatException is an unchecked exception thrown by Integer.parseInt() or similar if the string format cannot represent a number."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which keyword is used to inherit fields and methods from a superclass?",
+    "optionA": "implements",
+    "optionB": "extends",
+    "optionC": "inherits",
+    "optionD": "super",
+    "correctOption": "B",
+    "explanation": "A subclass uses 'extends' to inherit members from a parent class. A class can extend only one superclass."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which package is automatically imported into every Java program by default?",
+    "optionA": "java.util",
+    "optionB": "java.io",
+    "optionC": "java.lang",
+    "optionD": "java.net",
+    "correctOption": "C",
+    "explanation": "java.lang contains core classes like String, Math, Object, and System, and is implicitly imported into all Java source files."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which collection type does not allow duplicate elements?",
+    "optionA": "List",
+    "optionB": "Set",
+    "optionC": "Map",
+    "optionD": "Queue",
+    "correctOption": "B",
+    "explanation": "The Set interface models the mathematical set abstraction and permits no duplicate elements."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the output of 'System.out.println(10 + 20 + \"Java\");' in Java?",
+    "optionA": "1020Java",
+    "optionB": "30Java",
+    "optionC": "Java30",
+    "optionD": "Compiler Error",
+    "correctOption": "B",
+    "explanation": "Java evaluates from left to right. 10 + 20 is mathematically evaluated as 30, and then concatenated with \"Java\" to form \"30Java\"."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which interface should be implemented to sort a custom collection based on its natural ordering?",
+    "optionA": "Comparator",
+    "optionB": "Comparable",
+    "optionC": "Cloneable",
+    "optionD": "Serializable",
+    "correctOption": "B",
+    "explanation": "Comparable interface imposes a natural ordering via the compareTo() method. Comparator is used for custom external ordering algorithms."
+  },
+  {
+    "category": "Java",
+    "questionText": "What does a double-equals (==) comparison check for non-primitive object references?",
+    "optionA": "Content equality",
+    "optionB": "Memory address/reference equality",
+    "optionC": "Hashcode equality",
+    "optionD": "Type compatibility",
+    "correctOption": "B",
+    "explanation": "For non-primitive objects, == tests if both references point to the exact same object location in the Heap, while equals() checks content equality."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which class loader is responsible for loading Java's core API classes (e.g. java.lang.String)?",
+    "optionA": "Bootstrap Class Loader",
+    "optionB": "Extension Class Loader",
+    "optionC": "System/Application Class Loader",
+    "optionD": "User-Defined Class Loader",
+    "correctOption": "A",
+    "explanation": "The Bootstrap Class Loader is the root loader written in native code that loads standard JDK runtime classes from the rt.jar or jmods."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the purpose of the 'finally' block in try-catch-finally?",
+    "optionA": "To handle uncaught exceptions",
+    "optionB": "To execute clean-up tasks, regardless of whether an exception was thrown",
+    "optionC": "To terminate the application immediately",
+    "optionD": "To bypass catches if no exceptions exist",
+    "correctOption": "B",
+    "explanation": "The finally block always runs (barring System.exit() or infinite loops) to free resources like db connections, files, or sockets."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which keyword prevents a method from being overridden by a subclass?",
+    "optionA": "static",
+    "optionB": "final",
+    "optionC": "private",
+    "optionD": "abstract",
+    "correctOption": "B",
+    "explanation": "Marking a method as 'final' makes it constant and prevents subclasses from overriding or hiding it."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which statement about Interfaces in Java 8 is true?",
+    "optionA": "Interfaces cannot have any method bodies.",
+    "optionB": "Interfaces can define default and static methods with implementation bodies.",
+    "optionC": "Interfaces can contain private member variables.",
+    "optionD": "Interfaces can be instantiated directly.",
+    "correctOption": "B",
+    "explanation": "Java 8 introduced default and static methods inside interfaces to allow APIs to evolve without breaking existing client code."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which class is the base class for all checked exceptions in Java?",
+    "optionA": "RuntimeException",
+    "optionB": "Throwable",
+    "optionC": "Exception",
+    "optionD": "Error",
+    "correctOption": "C",
+    "explanation": "java.lang.Exception is the direct superclass of all checked exceptions. Unchecked exceptions extend RuntimeException, which also extends Exception."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which collection structure uses a FIFO (First-In-First-Out) arrangement?",
+    "optionA": "Stack",
+    "optionB": "Queue",
+    "optionC": "Set",
+    "optionD": "List",
+    "correctOption": "B",
+    "explanation": "The Queue interface models collections holding elements prior to processing, organizing them in a FIFO manner by default."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the default scope of a class member if no modifier is explicitly specified?",
+    "optionA": "public",
+    "optionB": "private",
+    "optionC": "protected",
+    "optionD": "package-private (default)",
+    "correctOption": "D",
+    "explanation": "Default access (no modifier) makes members visible to all other classes within the same package, but not outside."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is String Constant Pool in Java?",
+    "optionA": "A collection of constant numbers in memory",
+    "optionB": "A dedicated memory region inside the Heap for storing unique string literals",
+    "optionC": "A database repository",
+    "optionD": "An array of chars in the stack",
+    "correctOption": "B",
+    "explanation": "The String Constant Pool is a special storage area in the JVM heap that facilitates string reuse, conserving overall system memory."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which wrapper class represents a single-precision floating-point number?",
+    "optionA": "Double",
+    "optionB": "Float",
+    "optionC": "Decimal",
+    "optionD": "Real",
+    "correctOption": "B",
+    "explanation": "java.lang.Float is the object wrapper class for the primitive floating-point data type float."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which design pattern is used to instantiate a single instance of a class across the entire application context?",
+    "optionA": "Factory Pattern",
+    "optionB": "Singleton Pattern",
+    "optionC": "Observer Pattern",
+    "optionD": "Builder Pattern",
+    "correctOption": "B",
+    "explanation": "The Singleton pattern restricts class instantiation to a single unique object, providing global access to that instance."
+  },
+  {
+    "category": "Java",
+    "questionText": "What is the purpose of 'instanceof' operator?",
+    "optionA": "To compare two numbers",
+    "optionB": "To test if an object is an instance of a specific type or class",
+    "optionC": "To create new object instances",
+    "optionD": "To verify if a variable is null",
+    "correctOption": "B",
+    "explanation": "instanceof returns true if the referenced object is an instance of the class, subclass, or interface passed in."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which annotation is used to instruct the compiler that a method is overriding a superclass method?",
+    "optionA": "@Inherit",
+    "optionB": "@Override",
+    "optionC": "@SuperClass",
+    "optionD": "@Method",
+    "correctOption": "B",
+    "explanation": "@Override is a metadata annotation that helps prevent typos or mismatching parameters when implementing overridden methods."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which data type has the size of exactly 64-bits?",
+    "optionA": "int",
+    "optionB": "short",
+    "optionC": "long",
+    "optionD": "float",
+    "correctOption": "C",
+    "explanation": "long is a 64-bit signed primitive integer. float is 32-bit, int is 32-bit, short is 16-bit."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which package is used for writing tests in a standard Spring Boot application?",
+    "optionA": "java.test",
+    "optionB": "org.junit.jupiter.api",
+    "optionC": "org.springboot.test",
+    "optionD": "com.test",
+    "correctOption": "B",
+    "explanation": "JUnit 5 (Jupiter) is the default testing engine and package utilized by spring-boot-starter-test."
+  },
+  {
+    "category": "Java",
+    "questionText": "What does a JVM do with unreferenced objects?",
+    "optionA": "They remain in memory forever.",
+    "optionB": "They are deleted by the garbage collector.",
+    "optionC": "They are stored in files automatically.",
+    "optionD": "The program crashes.",
+    "correctOption": "B",
+    "explanation": "Java's automatic Garbage Collection identifies and destroys objects that have no active references, reclaiming their memory."
+  },
+  {
+    "category": "Java",
+    "questionText": "Which framework provides standard ORM (Object-Relational Mapping) support in Java?",
+    "optionA": "Spring MVC",
+    "optionB": "Hibernate",
+    "optionC": "Tomcat",
+    "optionD": "Logback",
+    "correctOption": "B",
+    "explanation": "Hibernate is the standard implementation of Jakarta Persistence (JPA), translating database tables into Java objects."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which data type in Python is mutable?",
+    "optionA": "tuple",
+    "optionB": "list",
+    "optionC": "string",
+    "optionD": "int",
+    "correctOption": "B",
+    "explanation": "Lists can be dynamically modified (items added, removed, or changed). Tuples, strings, and integers are immutable."
+  },
+  {
+    "category": "Python",
+    "questionText": "How do you declare a single-line comment in Python?",
+    "optionA": "// comment",
+    "optionB": "/* comment */",
+    "optionC": "# comment",
+    "optionD": "<!-- comment -->",
+    "correctOption": "C",
+    "explanation": "Python uses the hash symbol (#) to initiate comments that extend to the end of the line."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of 'print(type(5 / 2))' in Python 3?",
+    "optionA": "<class 'int'>",
+    "optionB": "<class 'float'>",
+    "optionC": "<class 'double'>",
+    "optionD": "<class 'decimal'>",
+    "correctOption": "B",
+    "explanation": "In Python 3, division (/) of integers always yields a float. To perform floor division, you use double slashes (//)."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does the '__init__' method represent in Python?",
+    "optionA": "A special class destructor",
+    "optionB": "The class constructor / initializer method",
+    "optionC": "A built-in module launcher",
+    "optionD": "A system variable definition",
+    "correctOption": "B",
+    "explanation": "__init__ is the initializer method automatically called when a new instance of a class is constructed."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which keyword is used to create a generator function in Python?",
+    "optionA": "generate",
+    "optionB": "yield",
+    "optionC": "return",
+    "optionD": "produce",
+    "correctOption": "B",
+    "explanation": "The 'yield' statement suspends function execution and sends a value back to the caller, maintaining its local state to resume later."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of '[x**2 for x in range(3)]' in Python?",
+    "optionA": "[0, 1, 4]",
+    "optionB": "[1, 4, 9]",
+    "optionC": "[0, 1, 2]",
+    "optionD": "[1, 2, 3]",
+    "correctOption": "A",
+    "explanation": "This is a list comprehension. range(3) produces 0, 1, and 2. Squaring them yields 0, 1, and 4."
+  },
+  {
+    "category": "Python",
+    "questionText": "How can you append an item to the end of a list named 'my_list'?",
+    "optionA": "my_list.add(item)",
+    "optionB": "my_list.append(item)",
+    "optionC": "my_list.push(item)",
+    "optionD": "my_list.insert(item)",
+    "correctOption": "B",
+    "explanation": "The append() method adds an object to the absolute end of an existing list."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which function returns the number of items in a dictionary or collection?",
+    "optionA": "count()",
+    "optionB": "size()",
+    "optionC": "len()",
+    "optionD": "length()",
+    "correctOption": "C",
+    "explanation": "The built-in len() function accepts a collection and returns the count of items in it."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does PEP 8 represent in the Python community?",
+    "optionA": "An package installation tool",
+    "optionB": "A design enhancement proposal defining style guidelines",
+    "optionC": "The Python interpreter version 8",
+    "optionD": "A database schema driver",
+    "correctOption": "B",
+    "explanation": "PEP 8 is the official Style Guide for Python Code, promoting readability, standard formatting, and layout styles."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the value of '3 * 1**3' in Python?",
+    "optionA": "9",
+    "optionB": "27",
+    "optionC": "3",
+    "optionD": "1",
+    "correctOption": "C",
+    "explanation": "Exponentiation (**) has higher operator precedence than multiplication (*). So 1**3 is evaluated first (1), and then multiplied by 3, yielding 3."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does 'self' represent inside a Python class method?",
+    "optionA": "A keyword denoting global scope",
+    "optionB": "The instance of the class calling the method",
+    "optionC": "The parent class identifier",
+    "optionD": "A private method variable",
+    "correctOption": "B",
+    "explanation": "'self' represents the specific instance of the class that has invoked the method, enabling access to attributes and other methods."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which data collection guarantees unique elements and has no key-value mappings?",
+    "optionA": "dict",
+    "optionB": "list",
+    "optionC": "set",
+    "optionD": "tuple",
+    "correctOption": "C",
+    "explanation": "A set is an unordered collection of unique elements in Python, based on a hashtable structure."
+  },
+  {
+    "category": "Python",
+    "questionText": "How is code block structuring (nesting) defined in Python?",
+    "optionA": "By curly braces { }",
+    "optionB": "By indentation (whitespace)",
+    "optionC": "By parentheses ( )",
+    "optionD": "By 'begin' and 'end' markers",
+    "correctOption": "B",
+    "explanation": "Unlike C or Java, Python uses uniform leading whitespace indentation to group code statements into logical blocks."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which keyword is used to handle exceptions in a try-except structure?",
+    "optionA": "catch",
+    "optionB": "except",
+    "optionC": "throw",
+    "optionD": "raise",
+    "correctOption": "B",
+    "explanation": "Python uses 'except' to catch and handle exceptions thrown in the preceding 'try' block."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which keyword is used to raise (throw) an exception in Python?",
+    "optionA": "throw",
+    "optionB": "raise",
+    "optionC": "except",
+    "optionD": "assert",
+    "correctOption": "B",
+    "explanation": "The 'raise' statement is used to trigger a specified exception class or object instance."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does the 'pass' keyword do in Python?",
+    "optionA": "It exits the active function.",
+    "optionB": "It acts as a placeholder statement that does absolutely nothing.",
+    "optionC": "It sends a variable to the next loop iteration.",
+    "optionD": "It prints a debug line.",
+    "correctOption": "B",
+    "explanation": "'pass' is a null operation. It is used as a syntax placeholder where code is required but no action is needed."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of 'print(\"Hello\"[1])'?",
+    "optionA": "H",
+    "optionB": "e",
+    "optionC": "l",
+    "optionD": "IndexError",
+    "correctOption": "B",
+    "explanation": "Strings in Python support index-based extraction, starting at index 0. The element at index 1 of \"Hello\" is 'e'."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is a decorator in Python?",
+    "optionA": "A graphical theme layout editor",
+    "optionB": "A function that takes another function and extends its behavior without modifying it",
+    "optionC": "A class attribute modifier",
+    "optionD": "A compiler directive",
+    "correctOption": "B",
+    "explanation": "Decorators are a elegant design pattern that wraps a callable to add pre/post processing behaviors (represented by @decorator syntax)."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which statement about Tuples is true?",
+    "optionA": "They are mutable and ordered.",
+    "optionB": "They are immutable and ordered.",
+    "optionC": "They are mutable and unordered.",
+    "optionD": "They are immutable and unordered.",
+    "correctOption": "B",
+    "explanation": "Tuples preserve index order, but their values cannot be changed or reassigned after they are created."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of 'bool([])' in Python?",
+    "optionA": "True",
+    "optionB": "False",
+    "optionC": "None",
+    "optionD": "ValueError",
+    "correctOption": "B",
+    "explanation": "Empty collections (lists, tuples, dicts, sets) and empty strings are falsy values, evaluating to False."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which block runs after try/except blocks only if no exceptions were raised?",
+    "optionA": "finally",
+    "optionB": "else",
+    "optionC": "then",
+    "optionD": "otherwise",
+    "correctOption": "B",
+    "explanation": "The 'else' block inside exceptions executes only if the try block completes successfully without any errors."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the default value returned by a function that lacks a return statement?",
+    "optionA": "False",
+    "optionB": "0",
+    "optionC": "None",
+    "optionD": "void",
+    "correctOption": "C",
+    "explanation": "Python functions implicitly return the singleton object 'None' if they reach the end of execution without hitting a return."
+  },
+  {
+    "category": "Python",
+    "questionText": "How can you create a set in Python?",
+    "optionA": "s = [1, 2, 3]",
+    "optionB": "s = (1, 2, 3)",
+    "optionC": "s = {1, 2, 3}",
+    "optionD": "s = {1: 'a', 2: 'b'}",
+    "correctOption": "C",
+    "explanation": "Curly braces surrounding simple comma-separated items create a Set. (With colon mappings, they define a dictionary)."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which standard library module handles file path manipulations across operating systems?",
+    "optionA": "sys",
+    "optionB": "os.path",
+    "optionC": "pathlib",
+    "optionD": "Both B and C",
+    "correctOption": "D",
+    "explanation": "Both os.path and the modern OOP-oriented pathlib provide robust path resolution capabilities across platforms."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does 'str.strip()' do?",
+    "optionA": "Replaces all letters with numbers",
+    "optionB": "Removes leading and trailing whitespaces from a string",
+    "optionC": "Splits a string into a list of characters",
+    "optionD": "Converts string to lowercase",
+    "correctOption": "B",
+    "explanation": "The strip() method returns a copy of the string with all leading and trailing space characters removed."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of '\"hello\".upper()' in Python?",
+    "optionA": "hello",
+    "optionB": "HELLO",
+    "optionC": "Hello",
+    "optionD": "Compiler Error",
+    "correctOption": "B",
+    "explanation": "The upper() method converts all lowercase characters in a string to their corresponding uppercase equivalents."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which keyword is used to import code from external packages?",
+    "optionA": "include",
+    "optionB": "import",
+    "optionC": "load",
+    "optionD": "require",
+    "correctOption": "B",
+    "explanation": "The 'import' keyword loads variables, classes, and functions from separate modules and packages."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the value of 'list(range(1, 5))'?",
+    "optionA": "[1, 2, 3, 4, 5]",
+    "optionB": "[1, 2, 3, 4]",
+    "optionC": "[0, 1, 2, 3, 4]",
+    "optionD": "[2, 3, 4, 5]",
+    "correctOption": "B",
+    "explanation": "The range(start, stop) function produces numbers up to but excluding the stop value. So range(1, 5) produces 1, 2, 3, 4."
+  },
+  {
+    "category": "Python",
+    "questionText": "How can you convert a floating point number '3.6' to an integer by truncating decimal values?",
+    "optionA": "round(3.6)",
+    "optionB": "int(3.6)",
+    "optionC": "floor(3.6)",
+    "optionD": "truncate(3.6)",
+    "correctOption": "B",
+    "explanation": "The int() function truncates floating point decimals toward zero, returning exactly 3 in this instance."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which parameter can be supplied to Python's print() function to prevent a trailing newline?",
+    "optionA": "sep=''",
+    "optionB": "end=''",
+    "optionC": "newline=False",
+    "optionD": "flush=True",
+    "correctOption": "B",
+    "explanation": "By default, print() appends '\\n' to the end. Specifying end='' replaces the newline with an empty string."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is a dictionary in Python?",
+    "optionA": "A list of definitions",
+    "optionB": "An unordered, mutable collection of key-value mappings",
+    "optionC": "An immutable sorted sequence of values",
+    "optionD": "A text editor utility",
+    "correctOption": "B",
+    "explanation": "A dictionary is a fast hash-map collection linking unique key items to arbitrary object values."
+  },
+  {
+    "category": "Python",
+    "questionText": "How do you check if a key 'name' exists inside dictionary 'd'?",
+    "optionA": "d.exists('name')",
+    "optionB": "d.has_key('name')",
+    "optionC": "'name' in d",
+    "optionD": "'name' exists d",
+    "correctOption": "C",
+    "explanation": "The membership operator 'in' evaluates whether a key is present in the dictionary. (Note that has_key() was removed in Python 3)."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of '2 ** 3' in Python?",
+    "optionA": "6",
+    "optionB": "8",
+    "optionC": "9",
+    "optionD": "5",
+    "correctOption": "B",
+    "explanation": "The double-star operator represents mathematical exponentiation, calculating 2 raised to the power of 3."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the result of '\"a\" + \"b\"' in Python?",
+    "optionA": "ab",
+    "optionB": "a b",
+    "optionC": "TypeError",
+    "optionD": "None",
+    "correctOption": "A",
+    "explanation": "The plus (+) operator is overloaded to perform string concatenation when used on string operands."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which built-in function returns a sorted list of elements from an iterable without altering the original iterable?",
+    "optionA": "list.sort()",
+    "optionB": "sorted()",
+    "optionC": "sort()",
+    "optionD": "arrange()",
+    "correctOption": "B",
+    "explanation": "sorted() returns a new sorted list from the items in any iterable, leaving the original sequence unchanged. list.sort() sorts the list in-place and returns None."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does a lambda function represent in Python?",
+    "optionA": "A recursive module call",
+    "optionB": "An anonymous, single-expression function",
+    "optionC": "A database synchronization service",
+    "optionD": "A formatting standard",
+    "correctOption": "B",
+    "explanation": "Lambdas are created using the 'lambda' keyword to build quick, small, inline function expressions."
+  },
+  {
+    "category": "Python",
+    "questionText": "What error is raised when trying to divide a number by zero?",
+    "optionA": "ValueError",
+    "optionB": "ZeroDivisionError",
+    "optionC": "ArithmeticError",
+    "optionD": "DivisionByZeroException",
+    "correctOption": "B",
+    "explanation": "Python throws a specific ZeroDivisionError when division or modulo operations are attempted with a zero divisor."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which keyword is used to create classes in Python?",
+    "optionA": "class",
+    "optionB": "def",
+    "optionC": "object",
+    "optionD": "struct",
+    "correctOption": "A",
+    "explanation": "The 'class' keyword initiates the definition block for creating new user classes."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of 'print(\"Python\"[::-1])'?",
+    "optionA": "P",
+    "optionB": "nohtyP",
+    "optionC": "Python",
+    "optionD": "IndexError",
+    "correctOption": "B",
+    "explanation": "The stride/step of -1 in string slicing reverses the string, starting from the last index to the first."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the global interpreter lock (GIL) in CPython?",
+    "optionA": "A security encryption mechanism for files",
+    "optionB": "A mutex that prevents multiple native threads from executing Python bytecodes at once",
+    "optionC": "A network connection pool lock",
+    "optionD": "A database lock",
+    "correctOption": "B",
+    "explanation": "The GIL is a mutex designed to make CPython's memory management thread-safe, limiting bytecode execution to a single thread at a time."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which collection utility class can count hashable objects automatically?",
+    "optionA": "dict.counter",
+    "optionB": "collections.Counter",
+    "optionC": "collections.CountList",
+    "optionD": "math.counter",
+    "correctOption": "B",
+    "explanation": "Counter is a dict subclass from the collections module, designed to count occurrences of iterable elements."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does standard function argument '*args' represent?",
+    "optionA": "A list of configuration settings",
+    "optionB": "A variable number of non-keyword positional arguments, packed into a tuple",
+    "optionC": "An array of pointers",
+    "optionD": "A collection of keyword arguments",
+    "correctOption": "B",
+    "explanation": "*args allows functions to accept an arbitrary number of positional arguments, which are stored as a tuple internally."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does standard function argument '**kwargs' represent?",
+    "optionA": "An array of pointers",
+    "optionB": "A variable number of keyword (named) arguments, packed into a dictionary",
+    "optionC": "A list of global variables",
+    "optionD": "A boolean toggle list",
+    "correctOption": "B",
+    "explanation": "**kwargs allows a function to accept a variable number of named keyword arguments, packed into a dictionary."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which module allows working with JSON strings and files in Python?",
+    "optionA": "sys.json",
+    "optionB": "json",
+    "optionC": "xml",
+    "optionD": "serializers",
+    "correctOption": "B",
+    "explanation": "The built-in 'json' module provides functions like dump(), dumps(), load(), and loads() to serialize/deserialize data."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the output of 'print(float(\"3.14\"))'?",
+    "optionA": "3",
+    "optionB": "3.14",
+    "optionC": "TypeError",
+    "optionD": "ValueError",
+    "correctOption": "B",
+    "explanation": "The float() constructor successfully converts string numeric values into floating-point numbers."
+  },
+  {
+    "category": "Python",
+    "questionText": "What is the result of '\"a\" * 3' in Python?",
+    "optionA": "aaa",
+    "optionB": "a 3",
+    "optionC": "TypeError",
+    "optionD": "None",
+    "correctOption": "A",
+    "explanation": "Multiplying a string by an integer repeats the string that many times. \"a\" concatenated three times is \"aaa\"."
+  },
+  {
+    "category": "Python",
+    "questionText": "How can you read all contents from a file safely, ensuring it closes regardless of exceptions?",
+    "optionA": "Using a try-finally block",
+    "optionB": "Using a 'with' context manager statement",
+    "optionC": "Both A and B",
+    "optionD": "Neither A nor B",
+    "correctOption": "C",
+    "explanation": "Both approaches can ensure cleanup, but the 'with' statement is the idiomatic, built-in context manager solution."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which built-in function creates a sequence pairing items from multiple iterables index-by-index?",
+    "optionA": "pair()",
+    "optionB": "zip()",
+    "optionC": "combine()",
+    "optionD": "match()",
+    "correctOption": "B",
+    "explanation": "zip() yields tuples containing matching-indexed items from each passed iterable, stopping when the shortest iterable is exhausted."
+  },
+  {
+    "category": "Python",
+    "questionText": "What does a double underscore prefix and suffix represent in names (e.g. __add__)?",
+    "optionA": "Private variables hidden from other classes",
+    "optionB": "Magic/dunder (double underscore) methods containing built-in hooks",
+    "optionC": "System global variables",
+    "optionD": "Compiler directives",
+    "correctOption": "B",
+    "explanation": "Dunder methods are special predefined functions in Python classes that implement internal hooks like operators, string representation, or iterators."
+  },
+  {
+    "category": "Python",
+    "questionText": "Which error is raised if a variable is used before it is assigned in local scope?",
+    "optionA": "NameError",
+    "optionB": "UnboundLocalError",
+    "optionC": "AttributeError",
+    "optionD": "ValueError",
+    "correctOption": "B",
+    "explanation": "UnboundLocalError is a subclass of NameError, raised when referencing a local variable before it has been initialized."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What does SQL stand for?",
+    "optionA": "System Query Language",
+    "optionB": "Structured Query Language",
+    "optionC": "Simple Query Language",
+    "optionD": "Serial Query Language",
+    "correctOption": "B",
+    "explanation": "SQL stands for Structured Query Language, the standardized language used to manage relational databases."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL command is a Data Definition Language (DDL) command?",
+    "optionA": "UPDATE",
+    "optionB": "INSERT",
+    "optionC": "CREATE",
+    "optionD": "DELETE",
+    "correctOption": "C",
+    "explanation": "DDL commands define or modify structural schemas. CREATE, ALTER, and DROP are DDL. UPDATE, INSERT, and DELETE are DML."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which command is used to remove all records from a table without deleting the actual table structure, and cannot be easily rolled back in many systems?",
+    "optionA": "DROP",
+    "optionB": "DELETE",
+    "optionC": "TRUNCATE",
+    "optionD": "REMOVE",
+    "correctOption": "C",
+    "explanation": "TRUNCATE drops and recreates the table structure (deleting all data), operates extremely fast, and bypasses log-based row-level deletion."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which clause is used to filter records in a SELECT query based on individual row values?",
+    "optionA": "HAVING",
+    "optionB": "WHERE",
+    "optionC": "GROUP BY",
+    "optionD": "ORDER BY",
+    "correctOption": "B",
+    "explanation": "WHERE filters raw candidate rows prior to group operations. HAVING is used to filter aggregated groups."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is the primary key constraint?",
+    "optionA": "Allows any value including duplicates",
+    "optionB": "Uniquely identifies each row, and forbids null values",
+    "optionC": "References a primary key in another table",
+    "optionD": "Restricts row length",
+    "correctOption": "B",
+    "explanation": "A PRIMARY KEY uniquely identifies table rows, combining UNIQUE and NOT NULL constraints into one declaration."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which constraint establishes a relationship between two tables, pointing to a primary key in another table?",
+    "optionA": "UNIQUE",
+    "optionB": "FOREIGN KEY",
+    "optionC": "CHECK",
+    "optionD": "DEFAULT",
+    "correctOption": "B",
+    "explanation": "FOREIGN KEY constraints guarantee referential integrity by pointing fields to columns in referenced parent tables."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which JOIN returns all matching rows from both tables, plus unmatched rows from the left table?",
+    "optionA": "INNER JOIN",
+    "optionB": "LEFT JOIN",
+    "optionC": "RIGHT JOIN",
+    "optionD": "FULL OUTER JOIN",
+    "correctOption": "B",
+    "explanation": "LEFT JOIN returns all records from the left table, and matching records from the right table. Missing matches contain NULL."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which aggregate function returns the total count of rows in a query?",
+    "optionA": "SUM()",
+    "optionB": "COUNT()",
+    "optionC": "TOTAL()",
+    "optionD": "AVG()",
+    "correctOption": "B",
+    "explanation": "COUNT() counts row occurrences matching aggregate criteria."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which operator is used to search for a specified wild-card pattern in a column?",
+    "optionA": "BETWEEN",
+    "optionB": "IN",
+    "optionC": "LIKE",
+    "optionD": "MATCH",
+    "correctOption": "C",
+    "explanation": "The LIKE operator is paired with wildcard characters like percent (%) or underscore (_) to execute pattern matches."
+  },
+  {
+    "category": "SQL",
+    "questionText": "How can you return only distinct (unique) values from a SELECT query?",
+    "optionA": "SELECT UNIQUE column FROM table",
+    "optionB": "SELECT DISTINCT column FROM table",
+    "optionC": "SELECT DIFFERENT column FROM table",
+    "optionD": "SELECT EXCLUSIVE column FROM table",
+    "correctOption": "B",
+    "explanation": "The DISTINCT keyword is inserted after SELECT to filter out duplicate rows from query results."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which aggregate function calculates the average value of a numeric column?",
+    "optionA": "AVERAGE()",
+    "optionB": "AVG()",
+    "optionC": "MEAN()",
+    "optionD": "SUM()",
+    "correctOption": "B",
+    "explanation": "AVG() calculates the mathematical average of non-NULL values inside a column."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which clause is used to sort the result-set in ascending or descending order?",
+    "optionA": "SORT BY",
+    "optionB": "ORDER BY",
+    "optionC": "GROUP BY",
+    "optionD": "ARRANGE BY",
+    "correctOption": "B",
+    "explanation": "The ORDER BY clause sorts output columns. ASC represents ascending order; DESC represents descending."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What does the ACID acronym stand for in database transaction management?",
+    "optionA": "Accuracy, Consistency, Isolation, Durability",
+    "optionB": "Atomicity, Consistency, Isolation, Durability",
+    "optionC": "Atomicity, Concurrency, Indexing, Data",
+    "optionD": "Access, Control, Integrity, Database",
+    "correctOption": "B",
+    "explanation": "ACID denotes Atomicity, Consistency, Isolation, and Durability, the core principles of reliable database transaction processing."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which transaction control command makes all pending changes permanent?",
+    "optionA": "ROLLBACK",
+    "optionB": "COMMIT",
+    "optionC": "SAVEPOINT",
+    "optionD": "UPDATE",
+    "correctOption": "B",
+    "explanation": "COMMIT writes all transaction logs permanently to the database, terminating the transaction block successfully."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which transaction control command discards all modifications made since the transaction started?",
+    "optionA": "COMMIT",
+    "optionB": "ROLLBACK",
+    "optionC": "UNDO",
+    "optionD": "CANCEL",
+    "correctOption": "B",
+    "explanation": "ROLLBACK undoes all modifications performed in the current uncommitted transaction block, restoring prior states."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is an index used for in a database?",
+    "optionA": "To encrypt sensitive table columns",
+    "optionB": "To accelerate data retrieval operations on a table",
+    "optionC": "To create parent-child table mappings",
+    "optionD": "To perform calculations on tables",
+    "correctOption": "B",
+    "explanation": "Indices establish underlying search trees (B-Trees usually) to find rows quickly without performing full-table scans."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which constraint ensures that all values in a column are different?",
+    "optionA": "NOT NULL",
+    "optionB": "UNIQUE",
+    "optionC": "CHECK",
+    "optionD": "DEFAULT",
+    "correctOption": "B",
+    "explanation": "The UNIQUE constraint guarantees that no duplicate values are entered in that specific column."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL JOIN returns rows when there is a match in both tables?",
+    "optionA": "INNER JOIN",
+    "optionB": "LEFT OUTER JOIN",
+    "optionC": "RIGHT OUTER JOIN",
+    "optionD": "FULL OUTER JOIN",
+    "correctOption": "A",
+    "explanation": "INNER JOIN merges matching row keys from both tables, omitting rows that lack counterpart matches."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What does a NULL value represent in SQL?",
+    "optionA": "An empty string",
+    "optionB": "A value of zero (0)",
+    "optionC": "Missing, unknown, or inapplicable data",
+    "optionD": "A system error indicator",
+    "correctOption": "C",
+    "explanation": "NULL is a marker indicating absent, untracked, or empty database cell entries."
+  },
+  {
+    "category": "SQL",
+    "questionText": "How can you check for NULL values in a WHERE clause?",
+    "optionA": "column = NULL",
+    "optionB": "column IS NULL",
+    "optionC": "column EQUALS NULL",
+    "optionD": "column == NULL",
+    "correctOption": "B",
+    "explanation": "Because NULL represents unknown data, standard comparative checks fail. You must use 'IS NULL' or 'IS NOT NULL'."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which command is used to add new rows to a database table?",
+    "optionA": "ADD ROW",
+    "optionB": "INSERT INTO",
+    "optionC": "CREATE RECORD",
+    "optionD": "UPDATE",
+    "correctOption": "B",
+    "explanation": "The INSERT INTO command inserts a new row (or multiple rows) with specified values into a table."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL command modifies existing data inside a table?",
+    "optionA": "MODIFY",
+    "optionB": "UPDATE",
+    "optionC": "CHANGE",
+    "optionD": "ALTER",
+    "correctOption": "B",
+    "explanation": "UPDATE modifies values of existing columns. ALTER is a DDL command that changes the actual table structure itself."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL clause restricts rows generated by a GROUP BY clause based on aggregate calculations?",
+    "optionA": "WHERE",
+    "optionB": "HAVING",
+    "optionC": "LIMIT",
+    "optionD": "ORDER BY",
+    "correctOption": "B",
+    "explanation": "HAVING operates on aggregated grouping summaries (e.g. HAVING COUNT(*) > 5) whereas WHERE evaluates raw individual rows."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is a subquery in SQL?",
+    "optionA": "An alternative index lookup",
+    "optionB": "A nested query placed inside another SQL query",
+    "optionC": "A child database schema",
+    "optionD": "A database trigger block",
+    "correctOption": "B",
+    "explanation": "Subqueries are queries nested inside main query blocks (SELECT, INSERT, UPDATE, or DELETE statements)."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which database normalization form focuses on removing transitive functional dependencies?",
+    "optionA": "First Normal Form (1NF)",
+    "optionB": "Second Normal Form (2NF)",
+    "optionC": "Third Normal Form (3NF)",
+    "optionD": "Boyce-Codd Normal Form (BCNF)",
+    "correctOption": "C",
+    "explanation": "A relation is in 3NF if it satisfies 2NF and has no transitive dependencies (where a non-key column determines another non-key column)."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What does a Cartesian product (CROSS JOIN) return?",
+    "optionA": "Only matching rows",
+    "optionB": "All rows from the left table and none from the right",
+    "optionC": "A combination of every row in the first table paired with every row in the second table",
+    "optionD": "An empty result",
+    "correctOption": "C",
+    "explanation": "A CROSS JOIN multiplies rows from both tables, returning N * M total entries."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which command is used to add a new column to an existing table?",
+    "optionA": "UPDATE TABLE ADD column",
+    "optionB": "ALTER TABLE ADD column_name data_type",
+    "optionC": "INSERT COLUMN column_name",
+    "optionD": "CREATE column_name ON table",
+    "correctOption": "B",
+    "explanation": "To alter a table structural schema (like adding a column), the DDL statement 'ALTER TABLE' with 'ADD' is used."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which JOIN returns all rows from both tables, filling in NULL where matches are absent?",
+    "optionA": "INNER JOIN",
+    "optionB": "LEFT OUTER JOIN",
+    "optionC": "RIGHT OUTER JOIN",
+    "optionD": "FULL OUTER JOIN",
+    "correctOption": "D",
+    "explanation": "A FULL OUTER JOIN combines LEFT and RIGHT outer joins, returning all records and filling NULLs for missing relations on either side."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which standard operator combines results of two SELECT statements, omitting duplicate records?",
+    "optionA": "UNION ALL",
+    "optionB": "UNION",
+    "optionC": "COMBINE",
+    "optionD": "MERGE",
+    "correctOption": "B",
+    "explanation": "UNION merges queries and filters out duplicates. UNION ALL retains duplicate records."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL operator searches for numeric values falling between a low and high range, inclusive of boundaries?",
+    "optionA": "IN",
+    "optionB": "BETWEEN",
+    "optionC": "WITHIN",
+    "optionD": "LIKE",
+    "correctOption": "B",
+    "explanation": "The BETWEEN operator filters values that fall within a specified range, inclusive of the low and high boundaries."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is the default sort ordering of the ORDER BY clause?",
+    "optionA": "Descending",
+    "optionB": "Ascending",
+    "optionC": "Random",
+    "optionD": "Depends on column type",
+    "correctOption": "B",
+    "explanation": "By default, ORDER BY arranges elements in ASC (ascending) order unless DESC is specified."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is the purpose of the GROUP BY clause?",
+    "optionA": "To sort output records",
+    "optionB": "To partition and group rows with matching column values into aggregate summary rows",
+    "optionC": "To create new relational schemas",
+    "optionD": "To validate primary key values",
+    "correctOption": "B",
+    "explanation": "GROUP BY aggregates multiple rows sharing column values, allowing aggregate operators (SUM, COUNT, AVG) to compile stats per group."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which clause limits the number of rows returned in standard MySQL syntax?",
+    "optionA": "ROWCOUNT",
+    "optionB": "TOP",
+    "optionC": "LIMIT",
+    "optionD": "FETCH FIRST",
+    "correctOption": "C",
+    "explanation": "MySQL uses 'LIMIT' to specify the maximum number of rows to return."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which type of subquery executes once for every single candidate row processed by the outer query?",
+    "optionA": "Nested Subquery",
+    "optionB": "Correlated Subquery",
+    "optionC": "Scalar Subquery",
+    "optionD": "Static Subquery",
+    "correctOption": "B",
+    "explanation": "A correlated subquery references columns of the outer query, meaning the DBMS must re-evaluate it for each row."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is a database view?",
+    "optionA": "A physical replica of a table stored in local memory",
+    "optionB": "A virtual table representing the compiled output of a saved SELECT query",
+    "optionC": "A backup file",
+    "optionD": "A database schema UI",
+    "correctOption": "B",
+    "explanation": "A View is a virtual table containing rows generated dynamically by a saved SQL query. It does not store static records physically itself."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which constraint is used to ensure a default value is saved in a column if none is provided during insertion?",
+    "optionA": "CHECK",
+    "optionB": "DEFAULT",
+    "optionC": "UNIQUE",
+    "optionD": "NOT NULL",
+    "correctOption": "B",
+    "explanation": "The DEFAULT constraint specifies a fallback value that is automatically written if the INSERT statement omits a value for that column."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which command removes a database table structure and all its data permanently?",
+    "optionA": "DROP TABLE",
+    "optionB": "DELETE TABLE",
+    "optionC": "TRUNCATE TABLE",
+    "optionD": "REMOVE TABLE",
+    "correctOption": "A",
+    "explanation": "DROP TABLE deletes the rows, relationships, indices, constraints, and the schema definitions of the table permanently from the database metadata."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which wild-card character matches exactly one character in a LIKE operator in standard SQL?",
+    "optionA": "Percent (%)",
+    "optionB": "Underscore (_)",
+    "optionC": "Asterisk (*)",
+    "optionD": "Question mark (?)",
+    "correctOption": "B",
+    "explanation": "In standard SQL LIKE pattern queries, underscore (_) matches exactly one character, while percent (%) matches zero or more characters."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is the purpose of the 'AS' keyword in a SELECT statement?",
+    "optionA": "To sort output entries",
+    "optionB": "To define a temporary alias name for a column or table",
+    "optionC": "To group elements",
+    "optionD": "To declare a variable",
+    "correctOption": "B",
+    "explanation": "The AS keyword creates an alias to rename output columns or tables for readability inside query results."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL standard operator checks if a search value matches any element in a list of values?",
+    "optionA": "BETWEEN",
+    "optionB": "IN",
+    "optionC": "LIKE",
+    "optionD": "ANY",
+    "correctOption": "B",
+    "explanation": "The IN operator verifies if a column value matches any item in a comma-separated list or subquery output."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which database normalization form resolves multi-valued attributes, ensuring each cell holds atomic values?",
+    "optionA": "First Normal Form (1NF)",
+    "optionB": "Second Normal Form (2NF)",
+    "optionC": "Third Normal Form (3NF)",
+    "optionD": "Fourth Normal Form (4NF)",
+    "correctOption": "A",
+    "explanation": "1NF requires that a table contains only atomic (indivisible) values, and that there are no repeating groups of attributes."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What is a database transaction?",
+    "optionA": "A single select query execution",
+    "optionB": "A single logical unit of work containing multiple SQL operations that must either fully succeed or fully fail together",
+    "optionC": "A data migration script",
+    "optionD": "A database connection request",
+    "correctOption": "B",
+    "explanation": "A transaction groups multiple SQL steps into an all-or-nothing operation, satisfying Atomicity in ACID parameters."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which type of key constraint references a primary key of another table to maintain referential integrity?",
+    "optionA": "Foreign Key",
+    "optionB": "Candidate Key",
+    "optionC": "Composite Key",
+    "optionD": "Alternate Key",
+    "correctOption": "A",
+    "explanation": "Foreign keys link records between tables, ensuring that updates/deletions align with parent-child table configurations."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What type of function is SUM(), AVG(), MIN(), MAX(), and COUNT()?",
+    "optionA": "Scalar functions",
+    "optionB": "Aggregate functions",
+    "optionC": "System functions",
+    "optionD": "Analytical functions",
+    "correctOption": "B",
+    "explanation": "Aggregate functions process multiple column input values across rows and compile them into a single summary output value."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL operator returns rows that appear in the first query but not in the second query?",
+    "optionA": "UNION",
+    "optionB": "INTERSECT",
+    "optionC": "EXCEPT / MINUS",
+    "optionD": "SUBTRACT",
+    "correctOption": "C",
+    "explanation": "EXCEPT (or MINUS in some dialects) computes the difference between two sets, returning values unique to the first query."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL command deletes specific rows from a table based on filtering criteria?",
+    "optionA": "DROP",
+    "optionB": "DELETE FROM",
+    "optionC": "TRUNCATE",
+    "optionD": "REMOVE",
+    "correctOption": "B",
+    "explanation": "DELETE FROM deletes specified rows filtering on WHERE parameters. DROP removes the table completely, and TRUNCATE deletes all rows."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which type of lock prevents other transactions from writing to a row but allows them to read it?",
+    "optionA": "Exclusive Lock",
+    "optionB": "Shared Lock (Read Lock)",
+    "optionC": "Intention Lock",
+    "optionD": "Optimistic Lock",
+    "correctOption": "B",
+    "explanation": "Shared locks enable concurrent readers to access rows, but blocks write modifications until the shared locks are released."
+  },
+  {
+    "category": "SQL",
+    "questionText": "What does a database collation determine?",
+    "optionA": "The table storage format",
+    "optionB": "The rules for comparing and sorting character strings",
+    "optionC": "The transaction isolation level",
+    "optionD": "The backup schedule",
+    "correctOption": "B",
+    "explanation": "Collation sets character sorting and equality rules (e.g. case-sensitivity like utf8mb4_unicode_ci)."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which SQL clause joins table row records together using matching column names present in both schemas?",
+    "optionA": "ON",
+    "optionB": "USING",
+    "optionC": "WHERE",
+    "optionD": "Both A and B",
+    "correctOption": "D",
+    "explanation": "ON is the general join condition statement, while USING merges columns when both tables share exact field names (e.g. USING (id))."
+  },
+  {
+    "category": "SQL",
+    "questionText": "Which isolation level prevents dirty reads but allows non-repeatable reads in transactions?",
+    "optionA": "Read Uncommitted",
+    "optionB": "Read Committed",
+    "optionC": "Repeatable Read",
+    "optionD": "Serializable",
+    "correctOption": "B",
+    "explanation": "Read Committed isolation guarantees that queries only view data committed before the query started. It avoids dirty reads but permits non-repeatable reads."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does HTML stand for?",
+    "optionA": "Hyper Text Markup Language",
+    "optionB": "Hyper Tech Markup Language",
+    "optionC": "High Text Markup Language",
+    "optionD": "Home Tool Markup Language",
+    "correctOption": "A",
+    "explanation": "HTML stands for Hyper Text Markup Language, the standard formatting language for web page documents."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML5 tag represents a thematic grouping of content, typically with a heading?",
+    "optionA": "<div>",
+    "optionB": "<section>",
+    "optionC": "<aside>",
+    "optionD": "<header>",
+    "correctOption": "B",
+    "explanation": "<section> is a semantic element representing a standalone block of a document that lacks a more specific semantic tag."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How can you create a hyperlink in HTML?",
+    "optionA": "<a href='url'>Link Text</a>",
+    "optionB": "<link src='url'>Link Text</link>",
+    "optionC": "<a src='url'>Link Text</a>",
+    "optionD": "<hyperlink>Link Text</hyperlink>",
+    "correctOption": "A",
+    "explanation": "The anchor element <a> with the href (hypertext reference) attribute defines hyperlinks."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which tag is used to define an unordered list in HTML?",
+    "optionA": "<ol>",
+    "optionB": "<ul>",
+    "optionC": "<li>",
+    "optionD": "<list>",
+    "correctOption": "B",
+    "explanation": "<ul> defines an unordered (bulleted) list. <ol> represents ordered lists, and <li> outlines list items."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What is the correct HTML tag for inserting a line break?",
+    "optionA": "<lb>",
+    "optionB": "<break>",
+    "optionC": "<br>",
+    "optionD": "<newline>",
+    "correctOption": "C",
+    "explanation": "<br> is an empty (self-closing) element that forces a line break inside text flows."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which attribute is used to define inline styles in HTML?",
+    "optionA": "styles",
+    "optionB": "style",
+    "optionC": "css",
+    "optionD": "class",
+    "correctOption": "B",
+    "explanation": "The 'style' attribute is used to apply CSS rules directly to individual HTML elements."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML element represents an independent, self-contained article or composition (e.g. blog post, forum card)?",
+    "optionA": "<section>",
+    "optionB": "<article>",
+    "optionC": "<div>",
+    "optionD": "<aside>",
+    "correctOption": "B",
+    "explanation": "<article> is a semantic block designed to hold content that makes sense on its own and is independently distributable."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which tag displays an image in HTML?",
+    "optionA": "<picture src='img.jpg'>",
+    "optionB": "<img src='img.jpg' alt='description'>",
+    "optionC": "<image source='img.jpg'>",
+    "optionD": "<img href='img.jpg'>",
+    "correctOption": "B",
+    "explanation": "The self-closing <img> tag requires the 'src' (source) attribute and should include an 'alt' (alternative text) attribute."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does CSS stand for?",
+    "optionA": "Creative Style Sheets",
+    "optionB": "Cascading Style Sheets",
+    "optionC": "Computer Style Sheets",
+    "optionD": "Colorful Style Sheets",
+    "correctOption": "B",
+    "explanation": "CSS stands for Cascading Style Sheets, the language used to style structural documents like HTML."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Where in an HTML document is the correct place to reference an external style sheet?",
+    "optionA": "In the <body> section",
+    "optionB": "In the <head> section",
+    "optionC": "At the very end of the file",
+    "optionD": "In the <title> tag",
+    "correctOption": "B",
+    "explanation": "External style sheets are referenced inside the <head> tag using a <link rel='stylesheet' href='style.css'> definition."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property is used to change the text color of an element?",
+    "optionA": "font-color",
+    "optionB": "text-color",
+    "optionC": "color",
+    "optionD": "background-color",
+    "correctOption": "C",
+    "explanation": "The 'color' property defines the foreground text color of an element."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS selector targets elements with class name 'container'?",
+    "optionA": "#container",
+    "optionB": ".container",
+    "optionC": "container",
+    "optionD": "*container",
+    "correctOption": "B",
+    "explanation": "In CSS, classes are targeted with a leading dot (.) prefix, IDs are targeted with a hash (#) prefix, and tags require no prefix."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS selector targets an element with the unique ID 'header'?",
+    "optionA": ".header",
+    "optionB": "#header",
+    "optionC": "header",
+    "optionD": "*header",
+    "correctOption": "B",
+    "explanation": "The hash (#) symbol selects elements based on their unique 'id' attribute values."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "In the CSS Box Model, which layer is immediately surrounding the content and inside the border?",
+    "optionA": "Margin",
+    "optionB": "Padding",
+    "optionC": "Outline",
+    "optionD": "Border-radius",
+    "correctOption": "B",
+    "explanation": "The box model layer sequence from inside out is: Content -> Padding -> Border -> Margin. Padding is internal spacing; margin is external."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property controls the spacing outside an element's border?",
+    "optionA": "padding",
+    "optionB": "margin",
+    "optionC": "border-width",
+    "optionD": "outline",
+    "correctOption": "B",
+    "explanation": "Margin defines external spacing outside the element's border, pushing neighboring components away."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How can you set a background color of black for all <body> elements in CSS?",
+    "optionA": "body {background-color: black;}",
+    "optionB": "body {bg-color: black;}",
+    "optionC": ".body {background-color: black;}",
+    "optionD": "#body {color: black;}",
+    "correctOption": "A",
+    "explanation": "The tag selector 'body' targets body tags directly. The property 'background-color' sets their background."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property controls the text size of an element?",
+    "optionA": "text-size",
+    "optionB": "font-style",
+    "optionC": "font-size",
+    "optionD": "size",
+    "correctOption": "C",
+    "explanation": "The 'font-size' property adjusts the dimension of text fonts (using units like px, em, rem, or %)."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property makes text bold?",
+    "optionA": "font-style: bold;",
+    "optionB": "font-weight: bold;",
+    "optionC": "text-weight: bold;",
+    "optionD": "font-size: bold;",
+    "correctOption": "B",
+    "explanation": "The 'font-weight' property sets the thickness of characters. 'bold' represents a standard thick weight."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How do you display a border with a thickness of 1 pixel, solid style, and white color?",
+    "optionA": "border: 1px solid white;",
+    "optionB": "border-width: 1px, border-style: solid, border-color: white;",
+    "optionC": "border: solid 1px #fff;",
+    "optionD": "Both A and C are valid shorthand formats",
+    "correctOption": "D",
+    "explanation": "The shorthand 'border' property accepts width, style, and color values in any logical order."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property is used to create space between the content of an element and its border?",
+    "optionA": "margin",
+    "optionB": "padding",
+    "optionC": "spacing",
+    "optionD": "border-spacing",
+    "correctOption": "B",
+    "explanation": "Padding creates internal breathing room inside the component border."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How do you make a list display without bullet points in CSS?",
+    "optionA": "list-style-type: none;",
+    "optionB": "bullets: none;",
+    "optionC": "text-decoration: none;",
+    "optionD": "list-style: bulletless;",
+    "correctOption": "A",
+    "explanation": "Setting list-style-type (or shorthand list-style) to 'none' removes default list markers like bullets or numbers."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property controls the layout alignment of flex items along the main-axis?",
+    "optionA": "align-items",
+    "optionB": "justify-content",
+    "optionC": "align-content",
+    "optionD": "flex-direction",
+    "correctOption": "B",
+    "explanation": "In flexbox layouts, 'justify-content' aligns children along the main-axis (horizontal by default), while 'align-items' controls the cross-axis."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property defines a Grid container, establishing grid rows and columns?",
+    "optionA": "display: flex;",
+    "optionB": "display: grid;",
+    "optionC": "layout: grid;",
+    "optionD": "grid-template: active;",
+    "correctOption": "B",
+    "explanation": "Setting 'display: grid' initializes standard CSS Grid layout behaviors on that element."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does 'box-sizing: border-box;' do in CSS?",
+    "optionA": "Adds a thick border around all divs",
+    "optionB": "Forces the element's total width and height to include its padding and borders",
+    "optionC": "Excludes margins from the width calculation",
+    "optionD": "Converts display to block",
+    "correctOption": "B",
+    "explanation": "With border-box, the declared width/height includes padding and border, preventing elements from expanding beyond dimensions when styled with padding."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property is used to round the corners of element boxes?",
+    "optionA": "corner-radius",
+    "optionB": "border-radius",
+    "optionC": "border-roundness",
+    "optionD": "border-corners",
+    "correctOption": "B",
+    "explanation": "The 'border-radius' property rounds element corners (e.g. border-radius: 50% for circles)."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How can you center a block element horizontally within its parent in CSS?",
+    "optionA": "margin: 0 auto;",
+    "optionB": "align: center;",
+    "optionC": "horizontal-align: center;",
+    "optionD": "padding: 0 auto;",
+    "correctOption": "A",
+    "explanation": "Setting 'margin: 0 auto' locks block elements to the center of their parent by sharing remaining outer margin space equally on left and right."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML element is used to capture multiline text input from users?",
+    "optionA": "<input type='text'>",
+    "optionB": "<textarea>",
+    "optionC": "<input type='multiline'>",
+    "optionD": "<textbox>",
+    "correctOption": "B",
+    "explanation": "The <textarea> tag creates a scrollable, resizable text entry area suited for paragraphs and multi-line text input."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which input type represents a clickable toggle circle where only one option in a group can be selected?",
+    "optionA": "type='checkbox'",
+    "optionB": "type='radio'",
+    "optionC": "type='circle'",
+    "optionD": "type='button'",
+    "correctOption": "B",
+    "explanation": "Radio inputs with matching 'name' attributes form toggle groups where only one selection can be active at a time."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does a CSS media query do?",
+    "optionA": "Checks if videos can play in browsers",
+    "optionB": "Applies a block of CSS rules only if specific viewport conditions (e.g. width, resolution) are met",
+    "optionC": "Tracks user clicks",
+    "optionD": "Loads database resources",
+    "correctOption": "B",
+    "explanation": "Media queries are the bedrock of responsive design, triggering different layouts based on screen dimensions or orientations."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does the z-index property control?",
+    "optionA": "Horizontal positioning",
+    "optionB": "Vertical positioning",
+    "optionC": "Stacking order of overlapping elements along the virtual z-axis",
+    "optionD": "Element zoom scaling",
+    "correctOption": "C",
+    "explanation": "z-index specifies the three-dimensional rendering order of positioned elements. Higher values overlap lower values."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML tag is used to embed client-side scripts (JavaScript)?",
+    "optionA": "<js>",
+    "optionB": "<script>",
+    "optionC": "<javascript>",
+    "optionD": "<code src='file.js'>",
+    "correctOption": "B",
+    "explanation": "The <script> element embeds or references executable client-side scripts."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which meta tag is essential for ensuring correct rendering on mobile screens in modern web pages?",
+    "optionA": "<meta charset='UTF-8'>",
+    "optionB": "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+    "optionC": "<meta name='description' content='...'>",
+    "optionD": "<meta name='keywords' content='...'>",
+    "correctOption": "B",
+    "explanation": "The viewport meta tag instructs browsers on how to scale pages relative to actual device widths, preventing desktop rendering on phone viewports."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What is the default display property value of a <div> element?",
+    "optionA": "inline",
+    "optionB": "block",
+    "optionC": "inline-block",
+    "optionD": "flex",
+    "correctOption": "B",
+    "explanation": "A <div> is a block-level container, occupying the full width of its parent block and initiating a new layout line."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What is the default display property value of a <span> element?",
+    "optionA": "block",
+    "optionB": "inline",
+    "optionC": "inline-block",
+    "optionD": "none",
+    "correctOption": "B",
+    "explanation": "A <span> is an inline element, occupying only as much horizontal space as its text nodes, without breaking lines."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property controls what happens to content that is too large to fit in its container?",
+    "optionA": "overflow",
+    "optionB": "clip",
+    "optionC": "sizing",
+    "optionD": "display",
+    "correctOption": "A",
+    "explanation": "The 'overflow' property specifies whether to clip, show, or add scrollbars (visible, hidden, scroll, auto) when content overflows."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML element is the correct semantic container for rendering footer details?",
+    "optionA": "<bottom>",
+    "optionB": "<footer>",
+    "optionC": "<aside>",
+    "optionD": "<div class='footer'>",
+    "correctOption": "B",
+    "explanation": "<footer> is the HTML5 semantic container designed to store site-wide and block-level footer metadata."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS function calculates values dynamically (e.g. width: calc(100% - 20px))?",
+    "optionA": "calculate()",
+    "optionB": "calc()",
+    "optionC": "compute()",
+    "optionD": "val()",
+    "correctOption": "B",
+    "explanation": "The calc() function allows mathematical expression combinations across different metric units to dynamically size elements."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How can you specify that an input field must be filled out before submitting a form?",
+    "optionA": "required='true'",
+    "optionB": "required",
+    "optionC": "validate",
+    "optionD": "mandatory",
+    "correctOption": "B",
+    "explanation": "The boolean attribute 'required' on HTML form inputs blocks submission if the input field is left empty."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does CSS position: absolute; do?",
+    "optionA": "Positions the element relative to the viewport window.",
+    "optionB": "Positions the element relative to its nearest positioned (non-static) ancestor.",
+    "optionC": "Keeps the element locked at its default flow position.",
+    "optionD": "Locks the element during scrolling.",
+    "correctOption": "B",
+    "explanation": "Absolute positioning removes elements from the standard layout flow, calculating top/left properties relative to their closest positioned parent."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does CSS position: fixed; do?",
+    "optionA": "Removes from flow, positioning relative to its closest parent.",
+    "optionB": "Removes from flow, positioning relative to the viewport. It stays in the same place even when the page is scrolled.",
+    "optionC": "Locks the element inside a flex container.",
+    "optionD": "None of the above.",
+    "correctOption": "B",
+    "explanation": "Fixed positioning locks components relative to the browser window viewport. They remain pinned in place when users scroll the page."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS property sets the opacity of an element?",
+    "optionA": "transparency",
+    "optionB": "opacity",
+    "optionC": "filter",
+    "optionD": "color-alpha",
+    "correctOption": "B",
+    "explanation": "The 'opacity' property defines element transparency (from 0.0 for completely invisible to 1.0 for completely opaque)."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "How do you write comments inside CSS files?",
+    "optionA": "// comment",
+    "optionB": "/* comment */",
+    "optionC": "# comment",
+    "optionD": "<!-- comment -->",
+    "correctOption": "B",
+    "explanation": "CSS uses slash-asterisk notation (/* ... */) to write multi-line and single-line comment blocks."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML element represents the main heading of a page? There should typically only be one of these per document.",
+    "optionA": "<head>",
+    "optionB": "<h1>",
+    "optionC": "<title>",
+    "optionD": "<heading>",
+    "correctOption": "B",
+    "explanation": "<h1> represents the highest level of heading hierarchy in HTML, mapping to page semantic title blocks."
+  },
+  {
+    "optionA": "<ol type='A'>",
+    "category": "HTML & CSS",
+    "questionText": "Which HTML tag creates an ordered list that uses uppercase alphabetical characters (A, B, C...) for its numbering?",
+    "optionB": "<ol alphabetical>",
+    "optionC": "<ul style='A'>",
+    "optionD": "<list ordered>",
+    "correctOption": "A",
+    "explanation": "The type='A' attribute on <ol> sets the ordering decimal indexes to uppercase Latin alphabetical letters."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS pseudo-class targets an element when a user points their mouse cursor over it?",
+    "optionA": ":active",
+    "optionB": ":hover",
+    "optionC": ":focus",
+    "optionD": ":visited",
+    "correctOption": "B",
+    "explanation": "The :hover pseudo-class activates styles when the user's cursor hovers over target components."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "What does the 'target=\"_blank\"' attribute do in an anchor tag <a>?",
+    "optionA": "Downloads the linked resource directly.",
+    "optionB": "Opens the linked document in a new window or tab.",
+    "optionC": "Bypasses history entries.",
+    "optionD": "Clears standard tab cookies.",
+    "correctOption": "B",
+    "explanation": "Specifying target='_blank' tells browsers to render linked URLs inside a fresh, blank tab or window."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS transition property is the shorthand for transition-property, transition-duration, transition-timing-function, and transition-delay?",
+    "optionA": "transform",
+    "optionB": "transition",
+    "optionC": "animation",
+    "optionD": "ease",
+    "correctOption": "B",
+    "explanation": "The shorthand 'transition' property enables quick declaration of timing functions, durations, and property transitions in one CSS line."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS layout feature allows you to design modular column-and-row-based pages without float operations?",
+    "optionA": "Flexbox",
+    "optionB": "CSS Grid",
+    "optionC": "Tables",
+    "optionD": "Inline-Blocks",
+    "correctOption": "B",
+    "explanation": "CSS Grid is a highly structured, two-dimensional layout system managing child grids across rows and columns."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which HTML element represents a dropdown selection list?",
+    "optionA": "<input type='dropdown'>",
+    "optionB": "<select>",
+    "optionC": "<list>",
+    "optionD": "<menu>",
+    "correctOption": "B",
+    "explanation": "The <select> element contains multiple child <option> elements to display scrollable dropdown selectors."
+  },
+  {
+    "category": "HTML & CSS",
+    "questionText": "Which CSS selector specificity has the absolute highest priority when resolving style conflicts?",
+    "optionA": "Element (tag) selector",
+    "optionB": "Class selector",
+    "optionC": "ID selector",
+    "optionD": "Inline styles",
+    "correctOption": "D",
+    "explanation": "Inline styles applied directly to HTML elements have the highest specificity (1000) over IDs (100), classes (10), and element selectors (1)."
+  }
+]

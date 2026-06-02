@@ -1,0 +1,119 @@
+/* Styling for Login and Registration portal */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    position: relative;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.auth-tabs {
+    display: flex;
+    border-radius: var(--radius-sm);
+    background: hsla(217, 30%, 15%, 0.6);
+    border: 1px solid var(--bg-card-border);
+    margin-bottom: 2rem;
+    padding: 0.25rem;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.auth-tab.active {
+    background: var(--primary);
+    color: var(--text-main);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Forms styling */
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.form-input {
+    background: hsla(217, 30%, 15%, 0.8);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-main);
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
+}
+
+.auth-form {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+.auth-form.active {
+    display: block;
+    opacity: 1;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.auth-footer a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-btn-container {
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+}

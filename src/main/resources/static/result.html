@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Arena - Evaluation Scorecard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Results Layout Grid styles */
+        .results-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SVG Radial score gauge styling */
+        .gauge-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .svg-gauge {
+            width: 200px;
+            height: 200px;
+            transform: rotate(-90deg);
+            margin: 1.5rem 0;
+        }
+
+        .gauge-bg {
+            fill: none;
+            stroke: var(--bg-card-border);
+            stroke-width: 12;
+        }
+
+        .gauge-fill {
+            fill: none;
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 565.48; /* 2 * PI * r (r=90) */
+            stroke-dashoffset: 565.48;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+
+        .gauge-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            fill: var(--text-main);
+            transform: rotate(90deg);
+            transform-origin: center;
+            text-anchor: middle;
+        }
+
+        /* Summary analytics list */
+        .result-summary-list {
+            width: 100%;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            border-top: 1px solid var(--bg-card-border);
+            border-bottom: 1px solid var(--bg-card-border);
+            padding: 1.5rem 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        /* Detailed Question list cards styling */
+        .review-panel {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feedback-item {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--bg-card-border);
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .feedback-item:hover {
+            border-color: hsla(217, 30%, 30%, 0.8);
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .feedback-q-text {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        .feedback-status-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        
+        .feedback-correct-icon {
+            background-color: var(--color-success-bg);
+            color: var(--color-success);
+            border: 1px solid hsla(145, 80%, 45%, 0.3);
+        }
+
+        .feedback-wrong-icon {
+            background-color: var(--color-danger-bg);
+            color: var(--color-danger);
+            border: 1px solid hsla(355, 80%, 55%, 0.3);
+        }
+
+        /* Color options on feedback list */
+        .review-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .review-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .review-opt {
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--bg-card-border);
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .review-opt-selected-correct {
+            background-color: var(--color-success-bg);
+            border-color: var(--color-success);
+            color: var(--color-success);
+            font-weight: 600;
+        }
+
+        .review-opt-selected-wrong {
+            background-color: var(--color-danger-bg);
+            border-color: var(--color-danger);
+            color: var(--color-danger);
+            font-weight: 600;
+        }
+
+        .review-opt-actual-correct {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);
+        }
+
+        .explanation-box {
+            background: hsla(250, 89%, 65%, 0.05);
+            border: 1px dashed rgba(99, 102, 241, 0.3);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="text-gradient">Compiling detailed performance metrics...</p>
+    </div>
+
+    <!-- Background Blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Top Header Navigation -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">Q</span>
+            <span class="text-gradient">Quiz Arena</span>
+        </div>
+        <div class="nav-profile">
+            <a href="/dashboard.html" class="btn btn-secondary" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">← Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Results Workspace -->
+    <div class="results-container">
+        
+        <!-- Left: Gauge Scorecard -->
+        <div class="glass-panel gauge-card">
+            <h4 id="result-greeting" class="text-gradient">Evaluating Performance...</h4>
+            <p id="result-category-label">Java Core Exam</p>
+            
+            <!-- SVG Progress Gauge -->
+            <svg class="svg-gauge" viewBox="0 0 200 200">
+                <circle class="gauge-bg" cx="100" cy="100" r="90" />
+                <circle id="score-gauge" class="gauge-fill" cx="100" cy="100" r="90" stroke="var(--color-success)" />
+                <text id="score-percent-text" x="100" y="100" class="gauge-text">0%</text>
+            </svg>
+
+            <!-- Pass / Fail Badge -->
+            <div id="result-status-badge" class="pill" style="font-size: 1.1rem; padding: 0.4rem 1.5rem; margin-bottom: 1.5rem;">PASS</div>
+
+            <!-- Score metrics detail -->
+            <div class="result-summary-list">
+                <div class="summary-row">
+                    <span>Total Questions</span>
+                    <span id="metric-total" style="font-weight:600;">50</span>
+                </div>
+                <div class="summary-row">
+                    <span>Correct Answers</span>
+                    <span id="metric-correct" style="color:var(--color-success); font-weight:600;">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Incorrect / Unanswered</span>
+                    <span id="metric-wrong" style="color:var(--color-danger); font-weight:600;">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Passing Score</span>
+                    <span style="font-weight:600;">50%</span>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; width: 100%;">
+                <button id="btn-retry" class="btn btn-primary" onclick="retryQuiz()">Retry Arena</button>
+                <a href="/dashboard.html" class="btn btn-secondary">Dashboard</a>
+            </div>
+        </div>
+
+        <!-- Right: Detailed Accordeon Review Panel -->
+        <div class="glass-panel review-panel">
+            <div>
+                <h3>Exam Review Arena</h3>
+                <p>Scroll through all questions to review correct answers and concepts.</p>
+            </div>
+            
+            <div id="questions-review-list" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <!-- 50 question review entries dynamically appended here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/result.js"></script>
+</body>
+</html>

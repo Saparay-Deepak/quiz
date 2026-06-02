@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Arena - Active Test</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Test Workspace Layout styles */
+        .quiz-workspace {
+            display: grid;
+            grid-template-columns: 3fr 1.2fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .quiz-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Top header metrics panel */
+        .exam-header {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timer-badge {
+            font-size: 1.6rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--bg-card-border);
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .timer-warning {
+            color: var(--color-danger);
+            border-color: var(--color-danger);
+            animation: pulseWarning 1s infinite alternate;
+        }
+
+        @keyframes pulseWarning {
+            from { box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); }
+            to { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+        }
+
+        /* Progress Bar styling */
+        .progress-container {
+            width: 100%;
+            background: var(--bg-card-border);
+            height: 6px;
+            border-radius: 50px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Question Box and Options */
+        .question-card {
+            padding: 2.5rem;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .option-btn {
+            background: hsla(217, 30%, 15%, 0.4);
+            border: 1px solid var(--bg-card-border);
+            border-radius: var(--radius-sm);
+            padding: 1.1rem 1.5rem;
+            color: var(--text-main);
+            font-size: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            outline: none;
+            width: 100%;
+        }
+
+        .option-btn:hover {
+            background: hsla(217, 30%, 25%, 0.6);
+            border-color: var(--text-muted);
+            transform: translateX(5px);
+        }
+
+        .option-btn.selected {
+            background: hsla(250, 89%, 65%, 0.15);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+        }
+
+        .option-btn.selected .option-letter {
+            background: var(--primary);
+            color: var(--text-main);
+        }
+
+        .option-letter {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: hsla(217, 30%, 15%, 0.8);
+            border: 1px solid var(--bg-card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            flex-shrink: 0;
+            color: var(--secondary);
+        }
+
+        /* Action Buttons bar */
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--bg-card-border);
+            padding-top: 1.5rem;
+        }
+
+        /* Exam Sidebar map styling */
+        .sidebar-panel {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 480px;
+        }
+
+        .bubble-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.6rem;
+            margin: 1rem 0;
+        }
+
+        .bubble {
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 1px solid var(--bg-card-border);
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .bubble:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .bubble.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 8px var(--primary-glow);
+        }
+
+        .bubble.answered {
+            background-color: var(--color-success-bg);
+            border-color: var(--color-success);
+            color: var(--color-success);
+        }
+
+        .bubble.marked {
+            background-color: hsla(290, 80%, 50%, 0.15);
+            border-color: hsl(290, 80%, 55%);
+            color: hsl(290, 80%, 65%);
+        }
+
+        /* Info legend colors */
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--bg-card-border);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        /* Confirmation overlay Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 9, 20, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1050;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-card {
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            animation: modalScale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes modalScale {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading screen -->
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="text-gradient">Initializing Secure Exam Arena...</p>
+    </div>
+
+    <!-- Background blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Toast Notifications container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Main quiz workspace wrapper -->
+    <div style="padding-top: 2rem; width: 100%;">
+        
+        <!-- Header metadata and timers -->
+        <div class="exam-header max-width" style="max-width: 1200px; margin: 0 auto 1.5rem auto;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="btn btn-secondary" onclick="confirmExit()" style="padding: 0.4rem 1rem; font-size: 0.85rem;">← Quit</button>
+                <div>
+                    <h3 id="category-title" style="margin: 0;">Java Exam Arena</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Quiz Mode Active</p>
+                </div>
+            </div>
+            <div id="timer-display" class="timer-badge">50:00</div>
+        </div>
+
+        <div class="quiz-workspace">
+            
+            <!-- Left Workspace: Active Question Card -->
+            <div class="glass-panel question-card" id="question-card-container">
+                <div>
+                    <!-- Active progress counters -->
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span id="question-index-counter" style="font-size: 0.85rem; font-weight: 600; color: var(--secondary);">QUESTION 1 OF 50</span>
+                        <span id="unanswered-count-badge" style="font-size: 0.8rem; color: var(--text-muted);">0 / 50 Answered</span>
+                    </div>
+
+                    <div class="progress-container">
+                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                    </div>
+
+                    <!-- Question Text block -->
+                    <div id="question-text-box" class="question-text">
+                        Loading question contents from DB...
+                    </div>
+
+                    <!-- Answer Options buttons grid -->
+                    <div class="options-grid" id="options-buttons-grid">
+                        <button class="option-btn" onclick="selectOption('A')">
+                            <div class="option-letter">A</div>
+                            <span class="option-content">Option A text</span>
+                        </button>
+                        <button class="option-btn" onclick="selectOption('B')">
+                            <div class="option-letter">B</div>
+                            <span class="option-content">Option B text</span>
+                        </button>
+                        <button class="option-btn" onclick="selectOption('C')">
+                            <div class="option-letter">C</div>
+                            <span class="option-content">Option C text</span>
+                        </button>
+                        <button class="option-btn" onclick="selectOption('D')">
+                            <div class="option-letter">D</div>
+                            <span class="option-content">Option D text</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer controls buttons row -->
+                <div class="controls-row">
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button id="btn-prev" class="btn btn-secondary" onclick="prevQuestion()" style="padding: 0.6rem 1.2rem;">← Prev</button>
+                        <button id="btn-clear" class="btn btn-secondary" onclick="clearSelection()" style="padding: 0.6rem 1.2rem;">Clear</button>
+                    </div>
+                    
+                    <button id="btn-mark" class="btn btn-secondary" onclick="toggleMarkForReview()" style="padding: 0.6rem 1.2rem; border-color: hsl(290, 80%, 55%); color: hsl(290, 80%, 75%);">Mark for Review</button>
+                    
+                    <button id="btn-next" class="btn btn-primary" onclick="nextQuestion()" style="padding: 0.6rem 1.8rem;">Next →</button>
+                </div>
+            </div>
+
+            <!-- Right Workspace: Sidebar Grid Map -->
+            <div class="glass-panel sidebar-panel">
+                <div>
+                    <h4 style="border-bottom: 1px solid var(--bg-card-border); padding-bottom: 0.5rem; font-size: 1rem;">Quest Navigator</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem;">Click any cell to jump directly</p>
+                    
+                    <div class="bubble-grid" id="navigation-bubble-grid">
+                        <!-- 50 bubbles dynamically generated here -->
+                    </div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: rgba(0,0,0,0.2);"></div>
+                            <span>Unvisited / Empty</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: var(--color-success-bg); border-color: var(--color-success);"></div>
+                            <span>Answered</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: hsla(290, 80%, 50%, 0.15); border-color: hsl(290, 80%, 55%);"></div>
+                            <span>Marked for Review</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; width: 100%;">
+                    <button class="btn btn-primary" onclick="triggerSubmitConfirmation()" style="width: 100%; font-size: 1.05rem; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">Submit Exam</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Exit Safety Warning Modal -->
+    <div id="exit-modal" class="modal-overlay">
+        <div class="glass-panel modal-card">
+            <h3 style="color: var(--color-danger); margin-bottom: 1rem;">Abandon Arena?</h3>
+            <p style="margin-bottom: 1.5rem;">Quitting now will lose all your progress on this quiz. Are you sure you want to abandon the exam?</p>
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+                <button class="btn btn-secondary" onclick="closeModal('exit-modal')">Resume Test</button>
+                <button class="btn btn-danger" onclick="exitToDashboard()">Yes, Abandon</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-modal" class="modal-overlay">
+        <div class="glass-panel modal-card">
+            <h3 style="color: var(--secondary); margin-bottom: 1rem;">Submit Your Paper?</h3>
+            <p id="submit-modal-description" style="margin-bottom: 1.5rem;">You are submitting your answers for scoring. You have 0 unanswered questions.</p>
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+                <button class="btn btn-secondary" onclick="closeModal('submit-modal')">Go Back</button>
+                <button class="btn btn-primary" onclick="submitExam()" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">Yes, Submit Paper</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/quiz.js"></script>
+</body>
+</html>
